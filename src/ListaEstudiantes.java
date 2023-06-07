@@ -37,16 +37,7 @@ public class ListaEstudiantes {
     }
 
     public void BuscarRecursivo(String Id) {
-        Estudiante P, X = new Estudiante(Id, Nombre, Apellido, Carrera);
-        if (Punta == null) {
-            Punta = X;
-        } else {
-            P = this.Punta;
-            while (P.getLiga() != null) {
-                P = P.getLiga();
-            }
-            P.setLiga(X);
-        }
+        Estudiante P=Punta;
     }
 
     public void Empty() {
@@ -77,12 +68,12 @@ public class ListaEstudiantes {
         String msj = "<tr>";
         Estudiante P;
         for (P = this.Punta; P != null; P = P.getLiga()) {
-            msj += '<th scope="row">'+P.getId()+'</th>';
-            msj += '<td>'+P.getNombre()+'</td>';
-            msj += '<td>'+P.getApellido()+'</td>';
-            msj += '<td>'+P.Mostrar()+'</td>';
-            msj += '<td>'+P.getCarrera()+'</td>';
-            msj += '<td>'+P.Promedio()+'</td>';
+            msj += "<th scope='row'>"+P.getId()+"</th>";
+            msj += "<td>"+P.getNombre()+"</td>";
+            msj += "<td>"+P.getApellido()+"</td>";
+            msj += "<td>"+P.Mostrar()+"</td>";
+            msj += "<td>"+P.getCarrera()+"</td>";
+            msj += "<td>"+P.Promedio()+"</td>";
         }
         msj += "</tr>";
         System.out.println(msj);

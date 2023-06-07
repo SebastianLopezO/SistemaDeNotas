@@ -1,7 +1,7 @@
 public class Materia {
     private String Nombre;
     private int Tope,Lim;
-    private int[] vec;
+    private int[] Vec;
 
     public Materia(String Nombre){
         this.Nombre=Nombre;
@@ -33,11 +33,11 @@ public class Materia {
     }
 
     public int[] getVec() {
-        return vec;
+        return Vec;
     }
 
     public void setVec(int[] vec) {
-        this.vec = vec;
+        this.Vec = vec;
     }
 
     public boolean PilaLlena(){
@@ -63,7 +63,7 @@ public class Materia {
     public void Apilar(int nota){
         if(!PilaLlena()){
             Tope++;
-            Vec[Tope]==nota;
+            Vec[Tope]=nota;
         }
         System.out.println("Ya no se puede ingresar mas notas");
     }
@@ -73,20 +73,19 @@ public class Materia {
     }
 
     public String ShowHtml(){
-         String msj = '';
-         Materia Aux;
+         String msj = "";
+         Materia Aux= new Materia("");
         while(!PilaVacia()){
             int num=this.Desapilar();
             Aux.Apilar(num);
-            msj+='<td>'+this.Desapilar()+'</td>'
+            msj+="<td>"+this.Desapilar()+"</td>";
         }
         this.Pasar(Aux);
-        msj += '';
         return msj;
     }
 
     public float Promedio(){
-         Materia Aux;
+         Materia Aux=new Materia("");
          int sum=0;
         while(!PilaVacia()){
             int num=this.Desapilar();
