@@ -1,7 +1,7 @@
 public class Estudiante {
     private String Id, Nombre, Apellido, Carrera;
     private Estudiante Liga;
-    private Materia Punta;
+    private Materia Tope;
 
     public Estudiante(String Id, String Nombre, String Apellido, String Carrera) {
         this.Id = Id;
@@ -9,7 +9,7 @@ public class Estudiante {
         this.Apellido = Apellido;
         this.Carrera = Carrera;
         this.Liga = null;
-        this.Punta = null;
+        this.Tope = null;
     }
 
     public Estudiante(String Id, String Nombre, String Apellido, String Carrera, Estudiante Liga) {
@@ -18,7 +18,7 @@ public class Estudiante {
         this.Apellido = Apellido;
         this.Carrera = Carrera;
         this.Liga = Liga;
-        this.Punta = null;
+        this.Tope = null;
     }
 
     public String getId() {
@@ -61,11 +61,20 @@ public class Estudiante {
         this.Liga = Liga;
     }
 
-    public Materia getPunta() {
-        return Punta;
+    public Materia getTope() {
+        return Tope;
     }
 
-    public void setPunta(Materia punta) {
-        Punta = punta;
+    public void setTope(Materia Tope) {
+        this.Tope = Tope;
+    }
+
+    public void Insert(String Nombre){
+        Materia P,X=new Materia(Nombre);
+        if(Tope==null){
+            Tope=X;
+        }else{
+            P=Tope;
+        }
     }
 }
