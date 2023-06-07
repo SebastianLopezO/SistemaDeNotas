@@ -61,4 +61,8 @@ public class Materia {
         }
         System.out.println("Ya no se puede ingresar mas notas");
     }
+
+    public void Modificar(String Materia){
+        
+    }
 }
