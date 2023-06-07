@@ -74,7 +74,12 @@ public class Estudiante {
         if(Tope==null){
             Tope=X;
         }else{
-            P=Tope;
+            P = this.Tope;
+            while (P.getLiga() != null) {
+                P = P.getLiga();
+            }
+            P.setLiga(X);
+
         }
     }
 }
