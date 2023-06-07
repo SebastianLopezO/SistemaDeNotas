@@ -1,10 +1,11 @@
+import javax.swing.*;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         ListaEstudiantes Lista=new ListaEstudiantes("PJIC");
         Lista.Insert("01","Sebastian","Lopez","Ing Informatica");
-        ((Lista.getPunta()).getTope()).Insert(5);
+        ((Lista.getPunta()).getTope()).Apilar(5);
         Lista.Show();
     }
 

@@ -57,7 +57,7 @@ public class Materia {
     public int Desapilar(){
         int num=Vec[Tope];
         Tope--;
-        return num
+        return num;
     }
 
     public void Apilar(int nota){
