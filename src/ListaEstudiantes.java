@@ -36,6 +36,19 @@ public class ListaEstudiantes {
         }
     }
 
+    public void BuscarRecursivo(String Id) {
+        Estudiante P, X = new Estudiante(Id, Nombre, Apellido, Carrera);
+        if (Punta == null) {
+            Punta = X;
+        } else {
+            P = this.Punta;
+            while (P.getLiga() != null) {
+                P = P.getLiga();
+            }
+            P.setLiga(X);
+        }
+    }
+
     public void Empty() {
         this.Punta = null;
     }
