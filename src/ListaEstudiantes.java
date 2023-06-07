@@ -2,9 +2,9 @@ public class ListaEstudiantes {
     private Estudiante Punta;
     public String Uni;
 
-    public ListaEstudiantes(String Uni){
-        this.Punta=null;
-        this.Uni=Uni;
+    public ListaEstudiantes(String Uni) {
+        this.Punta = null;
+        this.Uni = Uni;
     }
 
     public Estudiante getPunta() {
@@ -23,27 +23,40 @@ public class ListaEstudiantes {
         Uni = uni;
     }
 
-    public void Insertar(String Id,String Nombre,String Apellido,String Carrera){
-        Estudiante est=new Estudiante(Id,Nombre,Apellido,Carrera);
-        if(Punta==null){
-            Punta=est;
-        }else{
-            Estudiante P=Punta;
-            while (P.getLiga()!=null){
-                P=P.getLiga();
+    public void Insert(String Id, String Nombre, String Apellido, String Carrera) {
+        Estudiante P, X = new Estudiante(Id, Nombre, Apellido, Carrera);
+        if (Punta == null) {
+            Punta = X;
+        } else {
+            P = this.Punta;
+            while (P.getLiga() != null) {
+                P = P.getLiga();
             }
-            P.setLiga(est);
+            P.setLiga(X);
         }
     }
 
-    public void Mostrar() {
-        String msj = Clr.BG_BL + "\n" + this.Uni + ": [ ";
-        Estudiante P = this.Punta;
-        while (P!=null){
-            msj += "{ | " + Clr.BG_Y + " " + P.getNombre() + " " + Clr.BG_BL + " | " + Clr.BG_G + P.getLiga() + Clr.BG_BL + " }  => ";
+    public void Empty() {
+        this.Punta = null;
+    }
+
+    public int Length() {
+        int cont = 0;
+        Estudiante P = Punta;
+        while (P != null) {
             P = P.getLiga();
+            cont++;
         }
-        msj += " ]\n\n" + Clr.RT;
+        return cont;
+    }
+
+    public void Show() {
+        String msj = Uni +":"+ Clr.BG_BL+"[ "+Clr.BG_G+Punta+Clr.BG_BL;
+        Estudiante P;
+        for (P = this.Punta; P != null; P = P.getLiga()) {
+            msj += " { " +P.getId() +  " | " + " " + P.getNombre() + " | " +  P.getApellido() +" }  => \n\t\t"+Clr.BG_G+P.getLiga()+Clr.BG_BL;
+        }
+        msj += "\n]"+Clr.RT;
         System.out.println(msj);
     }
 }
