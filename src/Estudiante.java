@@ -82,4 +82,28 @@ public class Estudiante {
 
         }
     }
+
+    public String ShowHtml(){
+        String msj = '<table class="table table-striped table-hover">
+                            <thead>
+                                    <th>Nombre</th>
+                                    <th>Nota#1</th>
+                                    <th>Nota#2</th>
+                                    <th>Nota#3</th>
+                                    <th>Nota#4</th>
+                                    <th>Nota#5</th>
+                                    <th>Definitiva</th>
+                            </thead>
+                            <tbody>';
+        Materia P;
+        for (P = this.Tope; P != null; P = P.getLiga()) {
+            msj += '<tr>';
+            msj += '<td>'+P.Nombre+'</td>';
+            msj += P.ShowHtml();
+            msj += P.Promedio();
+            msj += '</tr>';
+        }
+        msj += '</tbody></table>';
+        return msj;
+    }
 }

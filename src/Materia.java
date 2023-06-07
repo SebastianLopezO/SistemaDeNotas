@@ -40,22 +40,28 @@ public class Materia {
         this.vec = vec;
     }
 
-    public boolean ColaLlena(){
+    public boolean PilaLlena(){
         if(this.Tope==this.Lim){
             return true;
         }
         return false;
     }
 
-    public boolean ColaVacia()){
+    public boolean PilaVacia(){
         if(this.Tope==-1){
             return true;
         }
         return false;
     }
 
-    public void Insert(int nota){
-        if(!ColaLlena()){
+    public int Desapilar(){
+        int num=Vec[Tope];
+        Tope--;
+        return num
+    }
+
+    public void Apilar(int nota){
+        if(!PilaLlena()){
             Tope++;
             Vec[Tope]==nota;
         }
@@ -63,6 +69,31 @@ public class Materia {
     }
 
     public void Modificar(String Materia){
-        
+
+    }
+
+    public String ShowHtml(){
+         String msj = '';
+         Materia Aux;
+        while(!PilaVacia()){
+            int num=this.Desapilar();
+            Aux.Apilar(num);
+            msj+='<td>'+this.Desapilar()+'</td>'
+        }
+        this.Pasar(Aux);
+        msj += '';
+        return msj;
+    }
+
+    public float Promedio(){
+         Materia Aux;
+         int sum=0;
+        while(!PilaVacia()){
+            int num=this.Desapilar();
+            Aux.Apilar(num);
+            sum+=num;
+        }
+        this.Pasar(Aux);
+        return sum/4;
     }
 }
