@@ -91,7 +91,6 @@ public class Estudiante {
                                     <th>Nota#2</th>
                                     <th>Nota#3</th>
                                     <th>Nota#4</th>
-                                    <th>Nota#5</th>
                                     <th>Definitiva</th>
                             </thead>
                             <tbody>';
@@ -100,7 +99,7 @@ public class Estudiante {
             msj += '<tr>';
             msj += '<td>'+P.Nombre+'</td>';
             msj += P.ShowHtml();
-            msj += P.Promedio();
+            msj += '<td>'+P.Promedio()+'</td>';
             msj += '</tr>';
         }
         msj += '</tbody></table>';
