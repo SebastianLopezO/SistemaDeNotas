@@ -6,7 +6,7 @@ public class Materia {
     public Materia(String Nombre){
         this.Nombre=Nombre;
         this.Tope=-1;
-        this.Lim=4;
+        this.Lim=3;
     }
     public String getNombre() {
         return Nombre;
