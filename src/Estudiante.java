@@ -1,7 +1,6 @@
-import javax.swing.*;
-
 public class Estudiante {
     private String Id,Nombre, Apellido, Carrera;
+    private Estudiante Liga;
     private  ColaMaterias Materias;
 
     public Estudiante(String Id,String Nombre,String Apellido,String Carrera){
@@ -9,6 +8,11 @@ public class Estudiante {
         this.Nombre=Nombre;
         this.Apellido=Apellido;
         this.Carrera=Carrera;
+        this.Liga=null;
+    }
+
+    public Estudiante(){
+        this.Liga=null;
     }
 
     public String getId() {
@@ -41,6 +45,14 @@ public class Estudiante {
 
     public void setCarrera(String carrera) {
         Carrera = carrera;
+    }
+
+    public Estudiante getLiga() {
+        return Liga;
+    }
+
+    public void setLiga(Estudiante Liga) {
+        Liga = Liga;
     }
 
     public ColaMaterias getMaterias() {
