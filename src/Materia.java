@@ -1,12 +1,13 @@
 public class Materia {
-    private String Nombre;
+    private String Nombre,Codigo;
 
     private Materia Liga;
     private int Tope,Lim;
     private float[] Vec;
 
-    public Materia(String Nombre){
+    public Materia(String Nombre,String Codigo){
         this.Nombre=Nombre;
+        this.Codigo=Codigo;
         this.Tope=-1;
         this.Lim=3;
         this.Liga=null;
@@ -42,6 +43,14 @@ public class Materia {
 
     public void setVec(float[] vec) {
         this.Vec = vec;
+    }
+
+    public String getCodigo() {
+        return Codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        Codigo = codigo;
     }
 
     public Materia getLiga() {
@@ -93,7 +102,7 @@ public class Materia {
     }
     public String ShowHtml(){
          String msj = "";
-         Materia Aux= new Materia("");
+         Materia Aux= new Materia("","");
         while(!PilaVacia()){
             float num=this.Desapilar();
             Aux.Apilar(num);
@@ -104,7 +113,7 @@ public class Materia {
     }
 
     public float Promedio(){
-         Materia Aux=new Materia("");
+         Materia Aux=new Materia("","");
          int sum=0;
         while(!PilaVacia()){
             float num=this.Desapilar();

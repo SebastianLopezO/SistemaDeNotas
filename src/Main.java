@@ -26,11 +26,13 @@ public class Main {
                     while (est) {
                         String OptionEst = MenuEst(X.getNombre() + " " + X.getApellido(), X.getId());
                         String materia;
+                        String codigo;
                         switch (OptionEst) {
                             case "Agregar Materia":
                                 materia=GetDato("materia", OptionEst);
+                                codigo=GetDato("materia", OptionEst);
                                 if(!X.Include(materia)){
-                                    X.Insert(materia);
+                                    X.Insert(materia,codigo);
                                 }else {
                                     System.out.println("Esta materia ya existe");
                                 }
@@ -53,7 +55,7 @@ public class Main {
                                             M.Empty();
                                             break;
                                         case "Modificar Materia":
-                                            //M.Modificar();
+                                            String[] mofM=MenuModificar(new String[]{"Nombre Materia","Codigo Materia"},new String[]{});
                                             break;
                                         case "Eliminar Materia":
                                             //M.Eliminar();
@@ -68,7 +70,7 @@ public class Main {
                                 X.Empty();
                                 break;
                             case "Modificar Estudiante":
-                                //X.Modificar();
+                                String[] mofE=MenuModificar(new String[]{"Nombre","Apellido","Carrera"},new String[]{X.getNombre(),X.getApellido(),X.getCarrera()});
                                 break;
                             case "Eliminar Estudiante":
                                 //X.Eliminar();
@@ -90,12 +92,12 @@ public class Main {
             }
         }
         Lista.Insert("01", "Sebastian", "Lopez", "Ing Informatica");
-        (Lista.getPunta()).Insert("Matematicas");
+        (Lista.getPunta()).Insert("Matematicas","CBS12939");
         ((Lista.getPunta()).getPunta()).Apilar(5);
         ((Lista.getPunta()).getPunta()).Apilar(4);
         ((Lista.getPunta()).getPunta()).Apilar(3);
         ((Lista.getPunta()).getPunta()).Apilar(2);
-        (Lista.getPunta()).Insert("Calculo");
+        (Lista.getPunta()).Insert("Calculo","CBS12939");
         ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
         ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
         ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
