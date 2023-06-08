@@ -6,8 +6,17 @@ public class Main {
         ListaEstudiantes Lista=new ListaEstudiantes("PJIC");
         Lista.Insert("01","Sebastian","Lopez","Ing Informatica");
         (Lista.getPunta()).Insert("Matematicas");
+        ((Lista.getPunta()).getPunta()).Apilar(5);
+        ((Lista.getPunta()).getPunta()).Apilar(4);
+        ((Lista.getPunta()).getPunta()).Apilar(3);
+        ((Lista.getPunta()).getPunta()).Apilar(2);
         (Lista.getPunta()).Insert("Calculo");
-        (Lista.getPunta()).Insert("Discretas");
+        ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
+        ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
+        ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
+        ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
+
+
         Lista.ShowHtml();
     }
 

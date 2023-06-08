@@ -66,14 +66,14 @@ public class ListaEstudiantes {
 
     public void ShowHtml(){
         String msj = "<tr>";
-        Estudiante P;
-        for (P = this.Punta; P != null; P = P.getLiga()) {
-            msj += "<th scope='row'>"+P.getId()+"</th>";
-            msj += "<td>"+P.getNombre()+"</td>";
-            msj += "<td>"+P.getApellido()+"</td>";
-            msj += "<td>"+P.ShowHtml()+"</td>";
-            msj += "<td>"+P.getCarrera()+"</td>";
-            msj += "<td>"+P.Promedio()+"</td>";
+        Estudiante Est;
+        for (Est = this.Punta; Est != null; Est = Est.getLiga()) {
+            msj += "<th scope='row'>"+Est.getId()+"</th>";
+            msj += "<td>"+Est.getNombre()+"</td>";
+            msj += "<td>"+Est.getApellido()+"</td>";
+            msj += "<td>"+Est.ShowHtml()+"</td>";
+            msj += "<td>"+Est.getCarrera()+"</td>";
+            msj += "<td>"+Est.Promedio()+"</td>";
         }
         msj += "</tr>";
         Html File = new Html();

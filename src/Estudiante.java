@@ -1,7 +1,7 @@
 public class Estudiante {
     private String Id, Nombre, Apellido, Carrera;
     private Estudiante Liga;
-    private Materia Punta;
+    private Materia Punta,Tope;
 
     public Estudiante(String Id, String Nombre, String Apellido, String Carrera) {
         this.Id = Id;
@@ -10,6 +10,7 @@ public class Estudiante {
         this.Carrera = Carrera;
         this.Liga = null;
         this.Punta = null;
+        this.Tope = null;
     }
 
     public Estudiante(String Id, String Nombre, String Apellido, String Carrera, Estudiante Liga) {
@@ -82,12 +83,10 @@ public class Estudiante {
     public void EnColar(Materia X){
         if(Punta==null){
             Punta=X;
+            Tope=X;
         }else{
-            Materia P = this.Punta;
-            while (P.getLiga() != null) {
-                P = P.getLiga();
-            }
-            P.setLiga(X);
+            Tope.setLiga(X);
+            Tope=X;
         }
 
     }
@@ -107,6 +106,7 @@ public class Estudiante {
         }else{
             Materia aux=Punta;
             do{
+                cont++;
                 this.EnColar(this.DesenColar());
             }while (Punta!=Init);
             return cont;
@@ -115,16 +115,15 @@ public class Estudiante {
     }
 
 
-    public int Promedio() {
+    public float Promedio() {
         int lim=this.Length();
-        int sum=0;
+        float sum=0;
         for(int i=0;i<lim;i++){
             Materia Asignatura=this.DesenColar();
             sum+=Asignatura.Promedio();
             this.EnColar(Asignatura);
 
         }
-
         if(lim==0){
             return 0;
         }

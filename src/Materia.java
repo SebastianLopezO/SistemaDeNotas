@@ -10,6 +10,7 @@ public class Materia {
         this.Tope=-1;
         this.Lim=3;
         this.Liga=null;
+        this.Vec=new int[4];
     }
     public String getNombre() {
         return Nombre;
@@ -75,8 +76,9 @@ public class Materia {
         if(!PilaLlena()){
             Tope++;
             Vec[Tope]=nota;
+        }else {
+            System.out.println("Ya no se puede ingresar mas notas");
         }
-        System.out.println("Ya no se puede ingresar mas notas");
     }
 
     public void Modificar(String Materia){
@@ -95,7 +97,7 @@ public class Materia {
         while(!PilaVacia()){
             int num=this.Desapilar();
             Aux.Apilar(num);
-            msj+="<td>"+this.Desapilar()+"</td>";
+            msj+="<td>"+num+"</td>";
         }
         this.Pasar(Aux);
         return msj;
