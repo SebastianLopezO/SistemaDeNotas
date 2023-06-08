@@ -124,6 +124,10 @@ public class Estudiante {
             this.EnColar(Asignatura);
 
         }
+
+        if(lim==0){
+            return 0;
+        }
         return sum/lim;
     }
 
