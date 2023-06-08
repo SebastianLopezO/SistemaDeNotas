@@ -37,7 +37,7 @@ public class ListaEstudiantes {
     }
 
     public void BuscarRecursivo(String Id) {
-        Estudiante P=Punta;
+        Estudiante P = Punta;
     }
 
     public void Empty() {
@@ -54,30 +54,55 @@ public class ListaEstudiantes {
         return cont;
     }
 
+    public boolean Include(String id) {
+        Estudiante E = Punta;
+        boolean exist = false;
+        while (E != null) {
+            if (E.getId() == id) {
+                exist = true;
+            }
+        }
+        return exist;
+    }
+
+    public Estudiante Buscar(String doc) {
+        if(this.Include(doc)){
+            Estudiante E=Punta;
+            while (E != null) {
+                if (E.getId() == doc) {
+                    return E;
+                }
+            }
+        }
+        return null;
+
+    }
+
     public void Show() {
-        String msj = Uni +":"+ Clr.BG_BL+"[ "+Clr.BG_G+Punta+Clr.BG_BL;
+        String msj = Uni + ":" + Clr.BG_BL + "[ " + Clr.BG_G + Punta + Clr.BG_BL;
         Estudiante P;
         for (P = this.Punta; P != null; P = P.getLiga()) {
-            msj += " { " +P.getId() +  " | " + " " + P.getNombre() + " | " +  P.getApellido() +" }  => \n\t\t"+Clr.BG_G+P.getLiga()+Clr.BG_BL;
+            msj += " { " + P.getId() + " | " + " " + P.getNombre() + " | " + P.getApellido() + " }  => \n\t\t" + Clr.BG_G + P.getLiga() + Clr.BG_BL;
         }
-        msj += "\n]"+Clr.RT;
+        msj += "\n]" + Clr.RT;
         System.out.println(msj);
     }
 
-    public void ShowHtml(){
+    public void ShowHtml() {
         String msj = "<tr>";
         Estudiante Est;
         for (Est = this.Punta; Est != null; Est = Est.getLiga()) {
-            msj += "<th scope='row'>"+Est.getId()+"</th>";
-            msj += "<td>"+Est.getNombre()+"</td>";
-            msj += "<td>"+Est.getApellido()+"</td>";
-            msj += "<td>"+Est.ShowHtml()+"</td>";
-            msj += "<td>"+Est.getCarrera()+"</td>";
-            msj += "<td>"+Est.Promedio()+"</td>";
+            msj += "<th scope='row'>" + Est.getId() + "</th>";
+            msj += "<td>" + Est.getNombre() + "</td>";
+            msj += "<td>" + Est.getApellido() + "</td>";
+            msj += "<td>" + Est.ShowHtml() + "</td>";
+            msj += "<td>" + Est.getCarrera() + "</td>";
+            msj += "<td>" + Est.Promedio() + "</td>";
         }
         msj += "</tr>";
         Html File = new Html();
         File.AddBody(msj);
         File.Export(Uni);
     }
+
 }

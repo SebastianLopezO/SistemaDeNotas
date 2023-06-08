@@ -155,4 +155,25 @@ public class Estudiante {
         return msj;
     }
 
+    public boolean Include(String materia) {
+         Materia M = Punta;
+        boolean exist = false;
+        while (M != null) {
+            if (M.getNombre() == materia) {
+                exist = true;
+            }
+        }
+        return exist;
+    }
+    public Materia Buscar(String materia) {
+        if(this.Include(materia)){
+            Materia M = Punta;
+            while (M != null) {
+                if (M.getNombre() == materia) {
+                    return M;
+                }
+            }
+        }
+        return null;
+    }
 }

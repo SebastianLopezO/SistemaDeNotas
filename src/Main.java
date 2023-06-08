@@ -8,15 +8,15 @@ public class Main {
             String Option = Menu();
             switch (Option) {
                 case "Insertar Estudiante":
-                    String Id=Integer.toString(GetNum("Cedula",Option));
-                    if(!Lista.Include(Id)){
-                        Lista.Insert(Id,GetDato("Nombre",Option),GetDato("Apellido",Option),GetDato("Carrera",Option));
-                    }else{
+                    String Id = Integer.toString(GetNum("Cedula", Option));
+                    if (!Lista.Include(Id)) {
+                        Lista.Insert(Id, GetDato("Nombre", Option), GetDato("Apellido", Option), GetDato("Carrera", Option));
+                    } else {
                         System.out.println("Este usuario ya existe");
                     }
                     break;
                 case "Buscar Estudiante":
-                    String doc = Integer.toString(GetNum("Cedula",Option));
+                    String doc = Integer.toString(GetNum("Cedula", Option));
                     Estudiante X = Lista.Buscar(doc);
                     boolean est = true;
                     if (X == null) {
@@ -25,38 +25,44 @@ public class Main {
                     }
                     while (est) {
                         String OptionEst = MenuEst(X.getNombre() + " " + X.getApellido(), X.getId());
+                        String materia;
                         switch (OptionEst) {
                             case "Agregar Materia":
-                                X.Insert(GetDato("materia",OptionEst));
+                                materia=GetDato("materia", OptionEst);
+                                if(!X.Include(materia)){
+                                    X.Insert(materia);
+                                }else {
+                                    System.out.println("Esta materia ya existe");
+                                }
                                 break;
                             case "Buscar Materia":
-                                 boolean Mat=true;
-                                 String materia = GetDato("materia",OptionEst);
-                                 Materia M = X.Buscar(materia);
+                                boolean Mat = true;
+                                materia = GetDato("materia", OptionEst);
+                                Materia M = X.Buscar(materia);
 
-                                 if(M==null){
-                                     System.out.println("La materia "+materia+" no existe");
-                                     Mat=false;
-                                 }
-                                 while (Mat){
-                                     String OptionMat = MenuMateria(X.getNombre()+X.getApellido(),X.getId(),materia);
-                                     switch (OptionMat){
-                                         case "Buscar Nota":
-                                             break;
-                                         case "Vaciar Notas":
-                                             M.Empty();
-                                             break;
-                                         case "Modificar Materia":
-                                             M.Modificar();
-                                             break;
-                                         case "Eliminar Materia":
-                                             M.Eliminar();
-                                             break;
-                                         case "Volver":
-                                             Mat=false;
-                                             break;
-                                     }
-                                 }
+                                if (M == null) {
+                                    System.out.println("La materia " + materia + " no existe");
+                                    Mat = false;
+                                }
+                                while (Mat) {
+                                    String OptionMat = MenuMateria(X.getNombre() + X.getApellido(), X.getId(), materia);
+                                    switch (OptionMat) {
+                                        case "Buscar Nota":
+                                            break;
+                                        case "Vaciar Notas":
+                                            M.Empty();
+                                            break;
+                                        case "Modificar Materia":
+                                            M.Modificar();
+                                            break;
+                                        case "Eliminar Materia":
+                                            M.Eliminar();
+                                            break;
+                                        case "Volver":
+                                            Mat = false;
+                                            break;
+                                    }
+                                }
                                 break;
                             case "Vaciar Materias":
                                 X.Empty();
@@ -68,7 +74,7 @@ public class Main {
                                 X.Eliminar();
                                 break;
                             case "Volver":
-                                est=false;
+                                est = false;
                                 break;
                         }
                     }
@@ -76,6 +82,8 @@ public class Main {
                 case "Vaciar Lista":
                     Lista.Empty();
                     break;
+                case "Mostrar Lista":
+                    Lista.ShowHtml();
                 case "Salir":
                     app = false;
                     break;
@@ -98,11 +106,11 @@ public class Main {
     }
 
 
-
     public static String Menu() {
         String[] Options = {"Insertar Estudiante",
                 "Buscar Estudiante",
                 "Vaciar Lista",
+                "Mostrar Lista",
                 "Salir"
         };
 
@@ -174,11 +182,11 @@ public class Main {
         return Option;
     }
 
-    public static int GetNum(String type,String Option) {
+    public static int GetNum(String type, String Option) {
         int num;
         while (true) {
             try {
-                num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Numero de " +type+" para "+Option+ ": "));
+                num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Numero de " + type + " para " + Option + ": "));
                 return num;
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "No se ha insertado un numero.");
@@ -190,12 +198,12 @@ public class Main {
     private static String GetDato(String type, String Option) {
         String line;
         while (true) {
-                line = JOptionPane.showInputDialog("Ingrese el/la " +type+" para "+Option+ ": ");
-                if(line.trim().isEmpty()){
-                    System.out.println("No puedes asignar Un/a "+type +" vacio o con numeros");
-                }else{
-                    return line;
-                }
+            line = JOptionPane.showInputDialog("Ingrese el/la " + type + " para " + Option + ": ");
+            if (line.trim().isEmpty()) {
+                System.out.println("No puedes asignar Un/a " + type + " vacio o con numeros");
+            } else {
+                return line;
+            }
         }
     }
 
