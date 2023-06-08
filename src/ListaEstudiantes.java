@@ -71,7 +71,7 @@ public class ListaEstudiantes {
             msj += "<th scope='row'>"+P.getId()+"</th>";
             msj += "<td>"+P.getNombre()+"</td>";
             msj += "<td>"+P.getApellido()+"</td>";
-            msj += "<td>"+P.Mostrar()+"</td>";
+            msj += "<td>"+P.ShowHtml()+"</td>";
             msj += "<td>"+P.getCarrera()+"</td>";
             msj += "<td>"+P.Promedio()+"</td>";
         }
