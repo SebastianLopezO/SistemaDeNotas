@@ -76,6 +76,8 @@ public class ListaEstudiantes {
             msj += "<td>"+P.Promedio()+"</td>";
         }
         msj += "</tr>";
-        System.out.println(msj);
+        Html File = new Html();
+        File.AddBody(msj);
+        File.Export(Uni);
     }
 }

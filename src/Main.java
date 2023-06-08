@@ -6,7 +6,7 @@ public class Main {
         ListaEstudiantes Lista=new ListaEstudiantes("PJIC");
         Lista.Insert("01","Sebastian","Lopez","Ing Informatica");
         ((Lista.getPunta()).getPunta()).Apilar(5);
-        Lista.Show();
+        Lista.ShowHtml();
     }
 
     public static String Menu() {
