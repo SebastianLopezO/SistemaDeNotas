@@ -70,8 +70,8 @@ public class Estudiante {
         this.Punta = Punta;
     }
 
-    public void Insert(String Nombre){
-        Materia X=new Materia(Nombre);
+    public void Insert(String Nombre,String Codigo){
+        Materia X=new Materia(Nombre,Codigo);
         this.EnColar(X);
     }
 
@@ -134,6 +134,7 @@ public class Estudiante {
         String msj = "<table class='table table-striped table-hover'>" +
                             "<thead>" +
                                     "<th>Nombre</th>" +
+                                    "<th>Codigo</th>" +
                                     "<th>Nota#1</th>" +
                                     "<th>Nota#2</th>" +
                                     "<th>Nota#3</th>" +
@@ -146,6 +147,7 @@ public class Estudiante {
             Materia Asignatura=this.DesenColar();
             msj += "<tr>";
             msj += "<td>"+Asignatura.getNombre()+"</td>";
+            msj += "<td>"+Asignatura.getCodigo()+"</td>";
             msj += Asignatura.ShowHtml();
             msj += "<td>"+Asignatura.Promedio()+"</td>";
             msj += "</tr>";
