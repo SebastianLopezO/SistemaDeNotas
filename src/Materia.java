@@ -114,4 +114,8 @@ public class Materia {
         this.Pasar(Aux);
         return sum/4;
     }
+
+    public void Empty() {
+        this.Tope=-1;
+    }
 }
