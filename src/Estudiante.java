@@ -176,4 +176,9 @@ public class Estudiante {
         }
         return null;
     }
+
+    public void Empty() {
+        this.Punta=null;
+        this.Tope=null;
+    }
 }
