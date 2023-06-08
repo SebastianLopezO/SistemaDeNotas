@@ -1,5 +1,7 @@
 public class Materia {
     private String Nombre;
+
+    private Materia Liga;
     private int Tope,Lim;
     private int[] Vec;
 
@@ -7,6 +9,7 @@ public class Materia {
         this.Nombre=Nombre;
         this.Tope=-1;
         this.Lim=3;
+        this.Liga=null;
     }
     public String getNombre() {
         return Nombre;
@@ -38,6 +41,14 @@ public class Materia {
 
     public void setVec(int[] vec) {
         this.Vec = vec;
+    }
+
+    public Materia getLiga() {
+        return Liga;
+    }
+
+    public void setLiga(Materia liga) {
+        Liga = liga;
     }
 
     public boolean PilaLlena(){
@@ -72,6 +83,12 @@ public class Materia {
 
     }
 
+    public void Pasar(Materia Aux){
+        while (!Aux.PilaVacia()){
+            int num=Aux.Desapilar();
+            this.Apilar(num);
+        }
+    }
     public String ShowHtml(){
          String msj = "";
          Materia Aux= new Materia("");
