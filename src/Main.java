@@ -53,10 +53,10 @@ public class Main {
                                             M.Empty();
                                             break;
                                         case "Modificar Materia":
-                                            M.Modificar();
+                                            //M.Modificar();
                                             break;
                                         case "Eliminar Materia":
-                                            M.Eliminar();
+                                            //M.Eliminar();
                                             break;
                                         case "Volver":
                                             Mat = false;
@@ -68,10 +68,10 @@ public class Main {
                                 X.Empty();
                                 break;
                             case "Modificar Estudiante":
-                                X.Modificar();
+                                //X.Modificar();
                                 break;
                             case "Eliminar Estudiante":
-                                X.Eliminar();
+                                //X.Eliminar();
                                 break;
                             case "Volver":
                                 est = false;
@@ -180,6 +180,16 @@ public class Main {
                 Options,
                 Options[0]);
         return Option;
+    }
+
+    public static String[] MenuModificar(String[] Scheme,String[] Values) {
+        String[] out=new String[Scheme.length];
+        for(int i=0;i<Scheme.length;i++){
+            String input = (String) JOptionPane.showInputDialog(null, "Ingrese el/la "+Scheme[i],Values[i]);
+            out[i]=input;
+        }
+        return  out;
+
     }
 
     public static int GetNum(String type, String Option) {
