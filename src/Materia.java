@@ -3,14 +3,14 @@ public class Materia {
 
     private Materia Liga;
     private int Tope,Lim;
-    private int[] Vec;
+    private float[] Vec;
 
     public Materia(String Nombre){
         this.Nombre=Nombre;
         this.Tope=-1;
         this.Lim=3;
         this.Liga=null;
-        this.Vec=new int[4];
+        this.Vec=new float[4];
     }
     public String getNombre() {
         return Nombre;
@@ -36,11 +36,11 @@ public class Materia {
         Lim = lim;
     }
 
-    public int[] getVec() {
+    public float[] getVec() {
         return Vec;
     }
 
-    public void setVec(int[] vec) {
+    public void setVec(float[] vec) {
         this.Vec = vec;
     }
 
@@ -66,13 +66,13 @@ public class Materia {
         return false;
     }
 
-    public int Desapilar(){
-        int num=Vec[Tope];
+    public float Desapilar(){
+        float num=Vec[Tope];
         Tope--;
         return num;
     }
 
-    public void Apilar(int nota){
+    public void Apilar(float nota){
         if(!PilaLlena()){
             Tope++;
             Vec[Tope]=nota;
@@ -87,7 +87,7 @@ public class Materia {
 
     public void Pasar(Materia Aux){
         while (!Aux.PilaVacia()){
-            int num=Aux.Desapilar();
+            float num=Aux.Desapilar();
             this.Apilar(num);
         }
     }
@@ -95,7 +95,7 @@ public class Materia {
          String msj = "";
          Materia Aux= new Materia("");
         while(!PilaVacia()){
-            int num=this.Desapilar();
+            float num=this.Desapilar();
             Aux.Apilar(num);
             msj+="<td>"+num+"</td>";
         }
@@ -107,7 +107,7 @@ public class Materia {
          Materia Aux=new Materia("");
          int sum=0;
         while(!PilaVacia()){
-            int num=this.Desapilar();
+            float num=this.Desapilar();
             Aux.Apilar(num);
             sum+=num;
         }

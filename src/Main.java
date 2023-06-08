@@ -8,15 +8,15 @@ public class Main {
             String Option = Menu();
             switch (Option) {
                 case "Insertar Estudiante":
-                    String Id=Integer.toString(GetId("Id"));
+                    String Id=Integer.toString(GetNum("Cedula",Option));
                     if(!Lista.Include(Id)){
-                        Lista.Insert(Id,GetDato("Nombre"),GetDato("Apellido"),GetDato("Carrera"));
+                        Lista.Insert(Id,GetDato("Nombre",Option),GetDato("Apellido",Option),GetDato("Carrera",Option));
                     }else{
                         System.out.println("Este usuario ya existe");
                     }
                     break;
                 case "Buscar Estudiante":
-                    String doc = Integer.toString(GetId(Option));
+                    String doc = Integer.toString(GetNum("Cedula",Option));
                     Estudiante X = Lista.Buscar(doc);
                     boolean est = true;
                     if (X == null) {
@@ -27,11 +27,11 @@ public class Main {
                         String OptionEst = MenuEst(X.getNombre() + " " + X.getApellido(), X.getId());
                         switch (OptionEst) {
                             case "Agregar Materia":
-                                X.Insert(GetDato());
+                                X.Insert(GetDato("materia",OptionEst));
                                 break;
                             case "Buscar Materia":
                                  boolean Mat=true;
-                                 String materia = GetDato("Materia");
+                                 String materia = GetDato("materia",OptionEst);
                                  Materia M = X.Buscar(materia);
 
                                  if(M==null){
@@ -96,6 +96,8 @@ public class Main {
 
         Lista.ShowHtml();
     }
+
+
 
     public static String Menu() {
         String[] Options = {"Insertar Estudiante",
@@ -172,11 +174,11 @@ public class Main {
         return Option;
     }
 
-    public static int GetNum(String Option) {
+    public static int GetNum(String type,String Option) {
         int num;
         while (true) {
             try {
-                num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Numero a "+Option+ ": "));
+                num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Numero de " +type+" para "+Option+ ": "));
                 return num;
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "No se ha insertado un numero.");
@@ -185,16 +187,16 @@ public class Main {
         }
     }
 
-    public static int GetId(String Option) {
-        int num;
+    private static String GetDato(String type, String Option) {
+        String line;
         while (true) {
-            try {
-                num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cedula a "+Option+ ": "));
-                return num;
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "No se ha insertado un numero.");
-                System.out.println("No ha insertado un numero, error" + ex);
-            }
+                line = JOptionPane.showInputDialog("Ingrese el/la " +type+" para "+Option+ ": ");
+                if(line.trim().isEmpty()){
+                    System.out.println("No puedes asignar Un/a "+type +" vacio o con numeros");
+                }else{
+                    return line;
+                }
         }
     }
+
 }
