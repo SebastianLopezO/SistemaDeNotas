@@ -8,6 +8,12 @@ public class Main {
             String Option = Menu();
             switch (Option) {
                 case "Insertar Estudiante":
+                    String Id=Integer.toString(GetId("Id"));
+                    if(!Lista.Include(Id)){
+                        Lista.Insert(Id,GetDato("Nombre"),GetDato("Apellido"),GetDato("Carrera"));
+                    }else{
+                        System.out.println("Este usuario ya existe");
+                    }
                     break;
                 case "Buscar Estudiante":
                     String doc = Integer.toString(GetId(Option));
@@ -21,14 +27,45 @@ public class Main {
                         String OptionEst = MenuEst(X.getNombre() + " " + X.getApellido(), X.getId());
                         switch (OptionEst) {
                             case "Agregar Materia":
+                                X.Insert(GetDato());
                                 break;
                             case "Buscar Materia":
+                                 boolean Mat=true;
+                                 String materia = GetDato("Materia");
+                                 Materia M = X.Buscar(materia);
+
+                                 if(M==null){
+                                     System.out.println("La materia "+materia+" no existe");
+                                     Mat=false;
+                                 }
+                                 while (Mat){
+                                     String OptionMat = MenuMateria(X.getNombre()+X.getApellido(),X.getId(),materia);
+                                     switch (OptionMat){
+                                         case "Buscar Nota":
+                                             break;
+                                         case "Vaciar Notas":
+                                             M.Empty();
+                                             break;
+                                         case "Modificar Materia":
+                                             M.Modificar();
+                                             break;
+                                         case "Eliminar Materia":
+                                             M.Eliminar();
+                                             break;
+                                         case "Volver":
+                                             Mat=false;
+                                             break;
+                                     }
+                                 }
                                 break;
                             case "Vaciar Materias":
+                                X.Empty();
                                 break;
                             case "Modificar Estudiante":
+                                X.Modificar();
                                 break;
                             case "Eliminar Estudiante":
+                                X.Eliminar();
                                 break;
                             case "Volver":
                                 est=false;
@@ -37,6 +74,7 @@ public class Main {
                     }
                     break;
                 case "Vaciar Lista":
+                    Lista.Empty();
                     break;
                 case "Salir":
                     app = false;
