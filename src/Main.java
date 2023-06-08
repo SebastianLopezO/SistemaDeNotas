@@ -71,9 +71,10 @@ public class Main {
                                 break;
                             case "Modificar Estudiante":
                                 String[] mofE=MenuModificar(new String[]{"Nombre","Apellido","Carrera"},new String[]{X.getNombre(),X.getApellido(),X.getCarrera()});
+                                X.Modificar(mofE);
                                 break;
                             case "Eliminar Estudiante":
-                                //X.Eliminar();
+                                X.Eliminar();
                                 break;
                             case "Volver":
                                 est = false;
