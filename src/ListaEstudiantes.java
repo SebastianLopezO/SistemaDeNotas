@@ -60,9 +60,7 @@ public class ListaEstudiantes {
         while (E != null) {
             if (E.getId() == id) {
                 exist = true;
-                System.out.println("la cedula "+E.getId()+" es igual a "+id);
             }
-            System.out.println("la cedula "+E.getId()+" no es igual a "+id);
             E = E.getLiga();
         }
         return exist;

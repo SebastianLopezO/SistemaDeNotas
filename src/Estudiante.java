@@ -165,6 +165,7 @@ public class Estudiante {
             if (M.getNombre() == materia) {
                 exist = true;
             }
+            M=M.getLiga();
         }
         return exist;
     }
@@ -175,6 +176,7 @@ public class Estudiante {
                 if (M.getNombre() == materia) {
                     return M;
                 }
+                M=M.getLiga();
             }
         }
         return null;
