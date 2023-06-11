@@ -87,6 +87,7 @@ public class Main {
                     break;
                 case "Mostrar Lista":
                     Lista.ShowHtml();
+                    break;
                 case "Salir":
                     app = false;
                     break;

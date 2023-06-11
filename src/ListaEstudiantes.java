@@ -61,6 +61,7 @@ public class ListaEstudiantes {
             if (E.getId() == id) {
                 exist = true;
             }
+            E = E.getLiga();
         }
         return exist;
     }
@@ -72,6 +73,7 @@ public class ListaEstudiantes {
                 if (E.getId() == doc) {
                     return E;
                 }
+                E = E.getLiga();
             }
         }
         return null;
@@ -106,12 +108,12 @@ public class ListaEstudiantes {
     }
 
     public void Eliminar(Estudiante X) {
-        if (Punta==X) {
-            Punta=Punta.getLiga();
+        if (Punta == X) {
+            Punta = Punta.getLiga();
         } else if (Punta != null) {
             Estudiante P = Punta;
             while (P.getLiga() != X) {
-                P=P.getLiga();
+                P = P.getLiga();
             }
             P.setLiga(X.getLiga());
         } else {
