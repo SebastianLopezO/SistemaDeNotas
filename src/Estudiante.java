@@ -1,9 +1,10 @@
 public class Estudiante {
-    private String Id, Nombre, Apellido, Carrera;
+    private String Nombre, Apellido, Carrera;
+    private int Id;
     private Estudiante Liga;
     private Materia Punta,Tope;
 
-    public Estudiante(String Id, String Nombre, String Apellido, String Carrera) {
+    public Estudiante(int Id, String Nombre, String Apellido, String Carrera) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -13,7 +14,7 @@ public class Estudiante {
         this.Tope = null;
     }
 
-    public Estudiante(String Id, String Nombre, String Apellido, String Carrera, Estudiante Liga) {
+    public Estudiante(int Id, String Nombre, String Apellido, String Carrera, Estudiante Liga) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -22,11 +23,11 @@ public class Estudiante {
         this.Punta = null;
     }
 
-    public String getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         Id = id;
     }
 

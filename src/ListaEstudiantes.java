@@ -23,7 +23,7 @@ public class ListaEstudiantes {
         Uni = uni;
     }
 
-    public void Insert(String Id, String Nombre, String Apellido, String Carrera) {
+    public void Insert(int Id, String Nombre, String Apellido, String Carrera) {
         Estudiante P, X = new Estudiante(Id, Nombre, Apellido, Carrera);
         if (Punta == null) {
             Punta = X;
@@ -54,19 +54,21 @@ public class ListaEstudiantes {
         return cont;
     }
 
-    public boolean Include(String id) {
+    public boolean Include(int id) {
         Estudiante E = Punta;
         boolean exist = false;
         while (E != null) {
             if (E.getId() == id) {
                 exist = true;
+                System.out.println("la cedula "+E.getId()+" es igual a "+id);
             }
+            System.out.println("la cedula "+E.getId()+" no es igual a "+id);
             E = E.getLiga();
         }
         return exist;
     }
 
-    public Estudiante Buscar(String doc) {
+    public Estudiante Buscar(int doc) {
         if (this.Include(doc)) {
             Estudiante E = Punta;
             while (E != null) {
@@ -91,17 +93,18 @@ public class ListaEstudiantes {
     }
 
     public void ShowHtml() {
-        String msj = "<tr>";
+        String msj = "";
         Estudiante Est;
         for (Est = this.Punta; Est != null; Est = Est.getLiga()) {
+            msj += "<tr>";
             msj += "<th scope='row'>" + Est.getId() + "</th>";
             msj += "<td>" + Est.getNombre() + "</td>";
             msj += "<td>" + Est.getApellido() + "</td>";
             msj += "<td>" + Est.ShowHtml() + "</td>";
             msj += "<td>" + Est.getCarrera() + "</td>";
             msj += "<td>" + Est.Promedio() + "</td>";
+            msj += "</tr>";
         }
-        msj += "</tr>";
         Html File = new Html();
         File.AddBody(msj);
         File.Export(Uni);

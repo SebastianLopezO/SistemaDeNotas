@@ -8,7 +8,7 @@ public class Main {
             String Option = Menu();
             switch (Option) {
                 case "Insertar Estudiante":
-                    String Id = Integer.toString(GetNum("Cedula", Option));
+                    int Id =GetNum("Cedula", Option);
                     if (!Lista.Include(Id)) {
                         Lista.Insert(Id, GetDato("Nombre", Option), GetDato("Apellido", Option), GetDato("Carrera", Option));
                     } else {
@@ -16,7 +16,7 @@ public class Main {
                     }
                     break;
                 case "Buscar Estudiante":
-                    String doc = Integer.toString(GetNum("Cedula", Option));
+                    int doc = GetNum("Cedula", Option);
                     Estudiante X = Lista.Buscar(doc);
                     boolean est = true;
                     if (X == null) {
@@ -130,7 +130,7 @@ public class Main {
         return Option;
     }
 
-    public static String MenuEst(String Nombre, String ID) {
+    public static String MenuEst(String Nombre, int ID) {
         String[] Options = {"Agregar Materia",
                 "Buscar Materia",
                 "Vaciar Materias",
@@ -150,7 +150,7 @@ public class Main {
         return Option;
     }
 
-    public static String MenuMateria(String Nombre, String ID, String Materia) {
+    public static String MenuMateria(String Nombre, int ID, String Materia) {
         String[] Options = {"Agregar Nota",
                 "Buscar Nota",
                 "Vaciar Notas",
@@ -170,7 +170,7 @@ public class Main {
         return Option;
     }
 
-    public static String MenuNota(String Nombre, String ID, String Materia, int Nota) {
+    public static String MenuNota(String Nombre, int ID, String Materia, int Nota) {
         String[] Options = {"Modificar Nota",
                 "Eliminar Nota",
                 "Volver"

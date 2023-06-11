@@ -42,7 +42,7 @@ public class Html {
             // Escribir código HTML en archivo
             FileWriter fw = new FileWriter(archivo);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("<html>" + this.Head + "<body><div class='container'>" + this.Body + "</tbody></div></body>" + "<html>");
+            bw.write("<html>" + this.Head + "<body><div class='container'>" + this.Body + "</tbody></table></div></body>" + "<html>");
             bw.close();
 
             // Abrir el archivo HTML en el navegador predeterminado
