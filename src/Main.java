@@ -74,7 +74,7 @@ public class Main {
                                 X.Modificar(mofE);
                                 break;
                             case "Eliminar Estudiante":
-                                X.Eliminar();
+                                Lista.Eliminar(X);
                                 break;
                             case "Volver":
                                 est = false;
@@ -92,7 +92,8 @@ public class Main {
                     break;
             }
         }
-        Lista.Insert("01", "Sebastian", "Lopez", "Ing Informatica");
+        //Insert manual
+        /*Lista.Insert("01", "Sebastian", "L", "Ing Informatica");
         (Lista.getPunta()).Insert("Matematicas","CBS12939");
         ((Lista.getPunta()).getPunta()).Apilar(5);
         ((Lista.getPunta()).getPunta()).Apilar(4);
@@ -102,7 +103,7 @@ public class Main {
         ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
         ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
         ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
-        ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);
+        ((Lista.getPunta()).getPunta().getLiga()).Apilar(2);*/
 
 
         Lista.ShowHtml();

@@ -66,8 +66,8 @@ public class ListaEstudiantes {
     }
 
     public Estudiante Buscar(String doc) {
-        if(this.Include(doc)){
-            Estudiante E=Punta;
+        if (this.Include(doc)) {
+            Estudiante E = Punta;
             while (E != null) {
                 if (E.getId() == doc) {
                     return E;
@@ -105,4 +105,17 @@ public class ListaEstudiantes {
         File.Export(Uni);
     }
 
+    public void Eliminar(Estudiante X) {
+        if (Punta==X) {
+            Punta=Punta.getLiga();
+        } else if (Punta != null) {
+            Estudiante P = Punta;
+            while (P.getLiga() != X) {
+                P=P.getLiga();
+            }
+            P.setLiga(X.getLiga());
+        } else {
+            System.out.println("La lista esta vacia");
+        }
+    }
 }

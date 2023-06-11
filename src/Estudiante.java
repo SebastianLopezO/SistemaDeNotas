@@ -183,4 +183,11 @@ public class Estudiante {
         this.Punta=null;
         this.Tope=null;
     }
+
+    public void Modificar(String[] mofE) {
+        this.Nombre=mofE[0];
+        this.Apellido=mofE[1];
+        this.Carrera=mofE[2];
+    }
+
 }
