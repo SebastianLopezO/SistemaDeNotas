@@ -30,7 +30,7 @@ public class Main {
                         switch (OptionEst) {
                             case "Agregar Materia":
                                 materia=GetDato("materia", OptionEst);
-                                codigo=GetDato("materia", OptionEst);
+                                codigo=GetDato("codigo de materia", OptionEst);
                                 if(!X.Include(materia)){
                                     X.Insert(materia,codigo);
                                 }else {

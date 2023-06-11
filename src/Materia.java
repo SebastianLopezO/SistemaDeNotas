@@ -103,10 +103,15 @@ public class Materia {
     public String ShowHtml(){
          String msj = "";
          Materia Aux= new Materia("","");
+        int cont=0;
         while(!PilaVacia()){
             float num=this.Desapilar();
             Aux.Apilar(num);
             msj+="<td>"+num+"</td>";
+            cont++;
+        }
+        for(int i=0;i<4-cont;i++){
+            msj+="<td>"+0+"</td>";
         }
         this.Pasar(Aux);
         return msj;
